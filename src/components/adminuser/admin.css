@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Crimson+Pro:wght@200&family=Crimson+Text&family=Josefin+Sans&family=Jost&family=Montserrat:wght@100;200;300;500;600&family=Poppins&display=swap');
+
+.admin-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+.admin-bar{
+  display: flex;
+  position: sticky;
+  width: 100%;
+  top: 1px;
+  z-index: 1;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(0, 141, 7);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin: 0px 0px 30px 0px;
+  padding: 15px 0;
+  cursor:text;
+}
+.admin-img{
+  width: 30%;
+  margin-left:20px;
+}
+.admin-nav{
+  display: flex;
+  justify-content: space-evenly;
+  font-family: 'Alata', sans-serif;
+  width: 30%;
+}
+.admin-dash{
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+}
+.logout{
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.logout:hover{
+  background-color: white;
+  color: red;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.table{
+  width: 70%;
+  border-collapse: collapse;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.tablehead{
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  background: linear-gradient(90deg, rgba(110,5,208,1) 0%, rgba(96,21,227,1) 100%);
+}
+.th{
+  padding: 14px 4px 14px 15px;
+  border-right: 1px solid white;
+}
+.actions{
+  padding: 10px 4px 10px 15px;
+}
+
+.tablerow-body{
+  border: 1px solid rgb(197, 197, 197);
+}
+
+.td{
+  padding: 8px 4px 8px 15px;
+  font-family: 'Jost', sans-serif;
+  border-right: 1px solid rgb(165, 165, 165);
+}
+.td-action{
+  padding: 8px 4px 8px 15px;
+  display: flex;
+  gap: 15px;
+}
+.tablerow-body:nth-child(even){
+  background-color: rgba(229, 226, 252, 0.952);
+}
+.select{
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  padding: 1px 3px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.disabled{
+  font-family: 'Josefin Sans', sans-serif;
+  padding: 1px 3px;
+  background-color: white;
+  position: relative;
+}
+.delete{
+  font-family: 'Jost', sans-serif;
+  background-color: rgb(224, 1, 1);
+  border-radius: 3px;
+  padding: 1px 10px;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+.pending{
+  color: rgb(146, 146, 146);
+}
+.washing{
+  color: blue;
+}
+.completed{
+  color: rgb(0, 170, 0);
+}
+.delivered{
+  color: red;
+}
+.home{
+  cursor: pointer;
+  padding: 5px 10px;
+  color: white;
+}
+.addbike:hover,
+.home:hover{
+  background-color: white;
+  color: green;
+  border-radius: 5px;
+}
+.addbike{
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+}

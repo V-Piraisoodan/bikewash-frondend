@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Crimson+Pro:wght@200&family=Crimson+Text&family=Josefin+Sans&family=Montserrat:wght@100;200;300;500;600&family=Poppins&display=swap');
+
+body{
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+}
+.signup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.signup-data-name{
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 5px 0;
+    padding: 7px 0;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(187, 186, 186);
+}
+.app-tittle{
+    color: blue;
+    font-family: 'Alata', sans-serif;
+    font-size: 25px;
+    margin: 40px 0 15px 0;
+}
+.signup-container{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 50px 80px;
+    border-radius: 8px;
+    margin-bottom: 35px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row-reverse;
+}
+.signup-data{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px 30px 30px 30px;
+}
+.signup-data-name{
+    display: flex;
+    justify-content: center;
+}
+.input-div{
+    margin: 5px 0 3px 0;
+}
+.input-label{
+    font-size: 14px;
+    color: rgb(29, 29, 29);
+    font-family: "Poppins",sans-serif;
+}
+.input-box{
+    width: 260px;
+    padding: 3px 1px 3px 5px;
+    border-radius: 3px;
+    margin: 2px 0 0px 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(135, 199, 252);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+.input-box:hover{
+    border: 2px solid rgb(39, 2, 250);
+}
+.error{
+    position: relative;
+    top: -6px;
+    color: rgb(252, 46, 46);
+    font-size: 10px;
+    padding-left: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+.select-box{
+    width: 260px;
+    padding: 2px;
+    border-radius: 3px;
+    margin: 2px 0 0px 0;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(135, 199, 252);
+    color: rgb(56, 56, 56);
+    outline: none;
+}
+.value{
+    font-size: 13px;
+    color: rgb(56, 56, 56);
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.already{
+    text-decoration: none;
+    color: blue;
+    font-size: 14px;
+    font-family: "alata",sans-serif;
+}
+.already:hover{
+    text-decoration: underline;
+}
+.btn{
+    width: 50%;
+    cursor: pointer;
+    font-family: "alata",sans-serif;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 6px 0px;
+    margin: 15px 0 8px 0;
+}
+.tit-img{
+    width: 250px;
+    height: 25px;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    font-family: 'alata', sans-serif;
+    /* margin: 5px 0; */
+    padding: 7px 0 10px 0;
+    font-size: 20px;
+    border-bottom: 1px solid rgb(187, 186, 186);
+}
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login-inputs{
+    background-color: white;
+    padding: 10px 25px 30px 25px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.login-btn{
+        width: 100%;
+        cursor: pointer;
+        font-family: "alata",sans-serif;
+        background-color: green;
+        color: white;
+        border: none;
+        font-size: 17px;
+        border-radius: 2px;
+        padding: 6px 0px;
+        margin: 15px 0 8px 0;
+}

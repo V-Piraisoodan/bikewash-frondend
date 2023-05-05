@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Admin from './components/adminuser/admin';
+import User from './components/adminuser/user';
+import { BrowserRouter as Router, Route , Routes} from "react-router-dom";
+import Login from './components/signupLogin/login';
+import Addbike from './components/userpage/addbike';
+import { NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import Signup from './components/signupLogin/signup';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Login/>}/>
+          <Route exact path='/user' element={<User/>}/>
+          <Route exact path='/admin' element={<Admin/>}/>
+          <Route exact path='/addbike' element={<Addbike/>}/>
+          <Route exact path='/signup' element={<Signup/>}/>
+        </Routes>
+      </Router>
+      <NotificationContainer/>
     </div>
   );
 }
