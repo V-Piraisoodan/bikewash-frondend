@@ -8,12 +8,11 @@ import {useNavigate} from "react-router-dom";
 const Admin = () => {
 
   const [bike,setBike] = useState([])
-  const [auth,setAuh] = useState("")
   const navigate = useNavigate();
 
     
     useEffect(()=>{
-        getAlldata();                               //get the output in console
+        getAlldata();  
       },[]);
     function getAlldata(){
       fetch("http://localhost:9000/admin",
@@ -22,8 +21,8 @@ const Admin = () => {
           headers: {
             "x-auth-token" : localStorage.getItem("token")
           },
-        })                                                          //to get the api
-        .then(data=>data.json())                                   // to convert the date into json format
+        })  
+        .then(data=>data.json())       
         .then(ans=> {
           // console.log(ans)
           function cb(){
@@ -32,7 +31,6 @@ const Admin = () => {
           }
           function hoc(val){
             if(ans.msg==="not authorized"){
-              setAuh("Not")
               navigate("/")
               val()
             }else{
