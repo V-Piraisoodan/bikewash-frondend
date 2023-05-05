@@ -29,7 +29,7 @@ const Addbike = () => {
     })
     const addBike = (bikeData)=>{
         // console.log(loginData)
-        fetch("http://localhost:9000/bikedata",
+        fetch("https://bikewashapp.onrender.com/bikedata",
         {
           method : "POST",
           crossDomain : true,

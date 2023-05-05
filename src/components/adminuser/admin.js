@@ -15,7 +15,7 @@ const Admin = () => {
         getAlldata();  
       },[]);
     function getAlldata(){
-      fetch("http://localhost:9000/admin",
+      fetch("https://bikewashapp.onrender.com/admin",
         {
           method: "GET",
           headers: {
@@ -45,7 +45,7 @@ const Admin = () => {
     function handleDelete(id,name){
       // console.log(id,name)
       if(window.confirm(`Are you sure you want to delete ${name}`)){
-        fetch("http://localhost:9000/deleteUser",
+        fetch("https://bikewashapp.onrender.com/deleteUser",
         {
           method : "POST",
           headers: {
@@ -69,7 +69,7 @@ const Admin = () => {
       // console.log(e.target.value)
       let status = e.target.value
       if(window.confirm(`Are you sure you want to update the status of ${name} to ${e.target.value}`)){
-        fetch("http://localhost:9000/updateStatus",
+        fetch("https://bikewashapp.onrender.com/updateStatus",
         {
           method : "PUT",
           headers: {

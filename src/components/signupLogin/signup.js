@@ -55,7 +55,7 @@ const Signup = () => {
             return
         }
         // console.log(values)
-        fetch("http://localhost:9000/signup",
+        fetch("https://bikewashapp.onrender.com/signup",
         {
           method : "POST",
           crossDomain : true,

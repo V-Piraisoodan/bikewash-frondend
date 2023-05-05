@@ -27,7 +27,7 @@ const Login = () => {
     })
     const login = (loginData)=>{
         // console.log(loginData)
-        fetch("http://localhost:9000/login",
+        fetch("https://bikewashapp.onrender.com/login",
         {
           method : "POST",
           crossDomain : true,

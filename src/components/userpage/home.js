@@ -10,7 +10,7 @@ const Home = () => {
         getAlldata(); 
       },[]);
     function getAlldata(){
-      fetch("http://localhost:9000/user",
+      fetch("https://bikewashapp.onrender.com/user",
       {
         method: "GET",
         headers: {
@@ -41,7 +41,7 @@ const Home = () => {
       // console.log(e.target.value)
       let status = "Delivered"
       if(window.confirm(`Are you sure you want to get your bike ${name}`)){
-        fetch("http://localhost:9000/updateStatus",
+        fetch("https://bikewashapp.onrender.com/updateStatus",
         {
           method : "PUT",
           headers: {
