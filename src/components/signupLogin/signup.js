@@ -103,7 +103,7 @@ return (
 
     <div className='signup-container'>
         <div className='signup-image'>
-          <img src={png} aria-label='bikewash image'/>
+          <img className='pngimg' src={png} aria-label='bikewash image'/>
         </div>
 
         <div className='signup-data'>

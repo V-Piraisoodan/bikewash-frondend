@@ -151,3 +151,37 @@ body{
         padding: 6px 0px;
         margin: 15px 0 8px 0;
 }
+@media screen and (max-width:700px) {
+    .signup-container{
+        display: flex;
+        flex-direction: column-reverse;
+        /* align-items: center; */
+        /* justify-content: center; */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+    }
+    .signup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .pngimg{
+        width: 100%;
+        object-fit: cover;
+    }
+    .tit-img{
+        width: 100%;
+        object-fit: cover;
+    }
+    .select-box,
+    .input-box{
+        width: 100%;
+    }
+    .login-inputs{
+        width: 83%;
+        margin-top: 20px;
+    }
+}
