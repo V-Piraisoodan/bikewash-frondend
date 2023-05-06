@@ -157,7 +157,7 @@ body{
         flex-direction: column-reverse;
         /* align-items: center; */
         /* justify-content: center; */
-        width: 100%;
+        width: 90%;
         margin: 0;
         padding: 0;
         box-shadow: none;
@@ -181,7 +181,7 @@ body{
         width: 100%;
     }
     .login-inputs{
-        width: 83%;
+        width: 70%;
         margin-top: 20px;
     }
 }
