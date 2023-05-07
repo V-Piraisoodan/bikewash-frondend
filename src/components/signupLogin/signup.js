@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './signup.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
@@ -7,11 +7,14 @@ import YupPassword from 'yup-password';
 import png from './bikewash.png';
 import title from "./title1.png"
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+import CircularProgress from '@mui/joy/CircularProgress';
+import { Box } from '@mui/material';
 YupPassword(yup);
 
 const Signup = () => {
 
     const navigate = useNavigate()
+    const [load,setLoad] = useState(false)
 
     const formValidation = yup.object({
        mail :yup
@@ -55,6 +58,7 @@ const Signup = () => {
             return
         }
         // console.log(values)
+        setLoad(true)
         fetch("https://bikewashapp.onrender.com/signup",
         {
           method : "POST",
@@ -75,6 +79,7 @@ const Signup = () => {
         .then((ans)=>ans.json())
         .then((data)=>{
             // console.log(data)
+            setLoad(false)
             if(data.status==="401"){
                 // alert(data.msg)
                 NotificationManager.error(data.msg,"Error",4000)
@@ -197,7 +202,16 @@ return (
                 </div>:""}
 
                 <div className='footer'>
-                    <button className='btn' type="submit">Signup</button>
+                    <button className='btn' type="submit">
+                        {load?
+                        <Box sx={{
+                            display:"flex",
+                            justifyContent:"center",
+                            gap:"10px"
+                        }}>Submitting...
+                        <CircularProgress className="process" color='info' size='sm' variant="soft"/>
+                        </Box>:"Signup"}
+                    </button>
                     <div><Link to="/" className='already'>Already have an account?  Login</Link></div>
                 </div>
             </div>

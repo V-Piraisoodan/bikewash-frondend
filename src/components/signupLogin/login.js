@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { Link, useNavigate } from 'react-router-dom';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import title from "./title1.png"
+import CircularProgress from '@mui/joy/CircularProgress';
+import { Box } from '@mui/material';
+
 
 const Login = () => {
     const navigate = useNavigate()
+    const [load,setLoad] = useState(false)
 
     const formValidation = yup.object({
         mail : yup
@@ -27,6 +31,7 @@ const Login = () => {
     })
     const login = (loginData)=>{
         // console.log(loginData)
+        setLoad(true)
         fetch("https://bikewashapp.onrender.com/login",
         {
           method : "POST",
@@ -43,6 +48,7 @@ const Login = () => {
         .then((ans)=>ans.json())
         .then((data)=>{
             // console.log(data)
+            setLoad(false)
             if(data.status==="401"){
                 // alert(data.msg)
                 NotificationManager.error(data.msg,"Error",4000)
@@ -99,11 +105,18 @@ const Login = () => {
                 {touched.password && errors.password?<span className='error'>{touched.password && errors.password}</span>:""}
             </div>
             <div className='footer'>
-                <button className='login-btn' type="submit">Login</button>
+                <button className='login-btn' type="submit"> {load?
+                <Box sx={{
+                    display:"flex",
+                    justifyContent:"center",
+                    gap:"10px"
+                  }}>Login
+                    <CircularProgress className="process" color='info' size='sm' variant="soft"/>
+                </Box>:"Login"}
+                </button>
                 <div><Link className='already' to="/signup">Don't have an account? Signup</Link></div>
             </div>
        </div>
-       <NotificationContainer/>
     </form>
   )
 }
