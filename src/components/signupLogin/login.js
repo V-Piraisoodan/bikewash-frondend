@@ -110,7 +110,7 @@ const Login = () => {
                     display:"flex",
                     justifyContent:"center",
                     gap:"10px"
-                  }}>Login
+                  }}>Logins
                     <CircularProgress className="process" color='info' size='sm' variant="soft"/>
                 </Box>:"Login"}
                 </button>
