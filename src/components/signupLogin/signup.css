@@ -141,16 +141,16 @@ body{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .login-btn{
-        width: 100%;
-        cursor: pointer;
-        font-family: "alata",sans-serif;
-        background-color: green;
-        color: white;
-        border: none;
-        font-size: 17px;
-        border-radius: 2px;
-        padding: 6px 0px;
-        margin: 15px 0 8px 0;
+    width: 100%;
+    cursor: pointer;
+    font-family: "alata",sans-serif;
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 17px;
+    border-radius: 2px;
+    padding: 6px 0px;
+    margin: 15px 0 8px 0;
 }
 .btn:hover,
 .login-btn:hover{
@@ -161,12 +161,22 @@ body{
     background-color: rgb(75, 126, 0);
     color: white;
 }
+.skeleton{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.skeletontable{
+    display: flex;
+    flex-direction: column;
+}
+.stack{
+    margin: 15px 0;
+}
 @media screen and (max-width:700px) {
     .signup-container{
         display: flex;
         flex-direction: column-reverse;
-        /* align-items: center; */
-        /* justify-content: center; */
         width: 90%;
         margin: 0;
         padding: 0;

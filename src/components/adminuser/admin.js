@@ -3,11 +3,13 @@ import "./admin.css";
 import title from "./bg1.png";
 import { NotificationManager } from 'react-notifications';
 import {useNavigate} from "react-router-dom";
+import Skeletontable from '../Skeleton/skeletontable';
 
 
 const Admin = () => {
 
   const [bike,setBike] = useState([])
+  const [load,setLoad] = useState(false);
   const navigate = useNavigate();
 
     
@@ -15,6 +17,7 @@ const Admin = () => {
         getAlldata();  
       },[]);
     function getAlldata(){
+      setLoad(true)
       fetch("https://bikewashapp.onrender.com/admin",
         {
           method: "GET",
@@ -24,6 +27,7 @@ const Admin = () => {
         })  
         .then(data=>data.json())       
         .then(ans=> {
+          setLoad(false)
           // console.log(ans)
           function cb(){
             NotificationManager.error(ans.error,"Not Authorized",5000)
@@ -112,54 +116,55 @@ const Admin = () => {
           <div className='logout' onClick={logout}>Logout</div>
         </div>
       </div>
-          <table className="table">
-            <thead className="tablehead">
-                <tr className="tablerow" >
-                    <td className="th">Id</td>
-                    <td className="th">Bike Name</td>
-                    <td className="th">Reg.number</td>
-                    <td className="th">Status</td>
-                    <td className='actions'>Actions</td>
+      {load?<Skeletontable/>:
+      <table className="table">
+        <thead className="tablehead">
+          <tr className="tablerow" >
+            <td className="th">Id</td>
+            <td className="th">Bike Name</td>
+            <td className="th">Reg.number</td>
+            <td className="th">Status</td>
+            <td className='actions'>Actions</td>
+          </tr>
+        </thead>
+        <tbody className="tablebody">
+          {bike.map((data,index)=>{
+              return (
+                <tr key={index} className="tablerow-body">
+                  <td className='td'>{index+1}</td>
+                  <td className='td'>{data.bikename}</td>
+                  <td className='td'>{data.bikenumber}</td>
+                  <td className='td'>
+                    {data.status===""?<span className='pending'>⏳ Pending</span>:
+                    data.status==="Washing"?<span className='washing'>💦 {data.status}</span>:
+                    data.status==="Completed"?<span className='completed'>👍 {data.status}</span>:
+                    <span className='delivered'>✔ {data.status}</span>}
+                  </td> 
+                  <td className='td-action'>
+                    {data.status === "" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
+                        <option value="Pending">Pending</option>
+                        <option value="Washing">Washing</option>
+                        <option value="Completed">Completed</option>
+                      </select> : data.status === "Washing" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
+                        <option value="Pending" disabled={true}>Pending</option>
+                        <option value="Washing">Washing</option>
+                        <option value="Completed">Completed</option>
+                      </select> : data.status === "Completed" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
+                        <option value="Pending" disabled={true}>Pending</option>
+                        <option value="Washing" disabled={true}>Washing</option>
+                        <option value="Completed">Completed</option>
+                      </select>: <select className='disabled' name="selectedStatus" disabled={true} value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
+                        <option value="Pending">Pending</option>
+                        <option value="Washing">Washing</option>
+                        <option value="Completed">Completed</option>
+                      </select>}
+                    <button onClick={()=>handleDelete(data._id,data.bikename)} className='delete'>Delete</button>
+                  </td>
                 </tr>
-            </thead>
-            <tbody className="tablebody">
-                {bike.map((data,index)=>{
-                    return (
-                        <tr key={index} className="tablerow-body">
-                          <td className='td'>{index+1}</td>
-                          <td className='td'>{data.bikename}</td>
-                          <td className='td'>{data.bikenumber}</td>
-                          <td className='td'>
-                            {data.status===""?<span className='pending'>⏳ Pending</span>:
-                            data.status==="Washing"?<span className='washing'>💦 {data.status}</span>:
-                            data.status==="Completed"?<span className='completed'>👍 {data.status}</span>:
-                            <span className='delivered'>✔ {data.status}</span>}
-                          </td> 
-                          <td className='td-action'>
-                            {data.status === "" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
-                              <option value="Pending">Pending</option>
-                              <option value="Washing">Washing</option>
-                              <option value="Completed">Completed</option>
-                            </select> : data.status === "Washing" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
-                              <option value="Pending" disabled={true}>Pending</option>
-                              <option value="Washing">Washing</option>
-                              <option value="Completed">Completed</option>
-                            </select> : data.status === "Completed" ?<select className='select' name="selectedStatus" value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
-                              <option value="Pending" disabled={true}>Pending</option>
-                              <option value="Washing" disabled={true}>Washing</option>
-                              <option value="Completed">Completed</option>
-                            </select>: <select className='disabled' name="selectedStatus" disabled={true} value={data.status} onChange={(e)=>handleUpdate(e,data._id,data.bikename)}>
-                              <option value="Pending">Pending</option>
-                              <option value="Washing">Washing</option>
-                              <option value="Completed">Completed</option>
-                            </select>}
-                            <button onClick={()=>handleDelete(data._id,data.bikename)} className='delete'>Delete</button>
-                          </td>
-                       </tr>
-                    )
-                })}
-            </tbody>
-        </table>
+              )
+          })}
+        </tbody>
+      </table>}
     </div>
   )
 }
